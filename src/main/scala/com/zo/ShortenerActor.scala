@@ -26,7 +26,7 @@ class ShortenerActor extends Actor with ActorLogging {
         case CreateShortUrl(shortKey, urlValue) =>
             log.info(s"Creating a short URL for $urlValue")
             redis.set(shortKey, urlValue)
-            sender() ! UrlResponse(urlValue, "http://localhost:9999/short/" + shortKey)
+            sender() ! UrlResponse(urlValue, "http://localhost:9999/goto/" + shortKey)
         case RetrieveShortUrl(shortKey)         =>
             log.info("Redirecting...")
             val url: Option[String] = redis.get(shortKey)

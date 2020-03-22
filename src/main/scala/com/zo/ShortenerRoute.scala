@@ -35,7 +35,7 @@ object ShortenerRoute extends UrlResponseProtocol
                 }
             }
         } ~
-        (path("short" / Segment) & get) { hashKey =>
+        (path("goto" / Segment) & get) { hashKey =>
             val redirectFuture: Future[Option[String]] =
                 (shortenerActor ? RetrieveShortUrl(hashKey)).mapTo[Option[String]]
             
