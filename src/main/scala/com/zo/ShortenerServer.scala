@@ -2,7 +2,7 @@ package com.zo
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import com.zo.ShortenerRoute.shortenerRoute
+import com.zo.route.ShortenerRoute.shortenerRoute
 
 object ShortenerServer extends App {
     

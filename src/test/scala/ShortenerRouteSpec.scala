@@ -1,5 +1,5 @@
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import com.zo.UrlResponseProtocol
+import com.zo.service.UrlResponseProtocol
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

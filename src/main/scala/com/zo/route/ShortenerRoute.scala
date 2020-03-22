@@ -1,14 +1,15 @@
-package com.zo
+package com.zo.route
 
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import akka.pattern.ask
 import akka.util.Timeout
+import com.zo.service.ShortenerActor.{CreateShortUrl, RetrieveShortUrl}
 import com.roundeights.hasher.Implicits._
-import com.zo.ShortenerActor._
+import akka.pattern.ask
+import com.zo.service.{ShortenerActor, UrlResponse, UrlResponseProtocol}
 
 import scala.concurrent.Future
 import scala.concurrent.duration._

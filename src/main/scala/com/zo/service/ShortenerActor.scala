@@ -1,8 +1,9 @@
-package com.zo
+package com.zo.service
 
 import akka.actor.{Actor, ActorLogging}
 import com.redis._
-import com.zo.ShortenerActor._
+import com.zo.service.ShortenerActor._
+import com.zo._
 import spray.json._
 
 
@@ -18,9 +19,11 @@ object ShortenerActor {
     case class RetrieveShortUrl(shortKey: String)
 }
 
-class ShortenerActor extends Actor with ActorLogging {
+class ShortenerActor extends Actor
+                     with ActorLogging
+                     with RedisConfig {
     
-    val redis = new RedisClient("localhost", 6379)
+    val redis = new RedisClient(redisHost, redisPort)
     
     override def receive: Receive = {
         case CreateShortUrl(shortKey, urlValue) =>
