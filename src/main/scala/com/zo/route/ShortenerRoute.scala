@@ -18,6 +18,8 @@ import scala.util.{Failure, Success}
 object ShortenerRoute extends UrlResponseProtocol
                       with SprayJsonSupport {
     
+    lazy val testing = "just for test purposes"
+    
     implicit val system: ActorSystem = ActorSystem("shortener-route")
     implicit val timeout: Timeout = Timeout(3 seconds)
     
